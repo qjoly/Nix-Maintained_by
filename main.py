@@ -6,7 +6,7 @@ def search_files_with_string(root_dir, search_string):
     for file_path in glob.iglob(search_pattern, recursive=True):
         with open(file_path, 'r') as f:
             if search_string in f.read():
-                files.append(file_path)
+                files.append("- " + file_path)
     return files
 
 def insert_strings_between_markers(file_path, start_marker, end_marker, strings_list):
