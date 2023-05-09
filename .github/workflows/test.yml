@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          path: '/tmp/nixpkgs'
+          path: './nixpkgs'
           repository: 'NixOS/nixpkgs'
       - name: Run nix-maintainers-get-packages
         uses: qjoly/nix-maintainers-get-packages@v0.1
         with:
           file: './test.md'
-          path_nixpkgs: '/tmp/nixpkgs'
+          path_nixpkgs: './nixpkgs/pkgs'
           maintainer: 'qjoly'
