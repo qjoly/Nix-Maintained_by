@@ -1,0 +1,14 @@
+name: Test
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run_action:
+    runs-on: ubuntu-latest
+    name: Run nix-maintainers-get-packages
+    steps:
+      - name: Run nix-maintainers-get-packages
+        uses: qjoly/nix-maintainers-get-packages@v0.1
+        with:
+          who-to-greet: 'Mona the Octocat'
