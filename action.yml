@@ -1,0 +1,24 @@
+name: 'Get Nix packages maintainer'
+description: 'Get nix packages of a maintainer' 
+author: "Quentin JOLY"
+branding:
+  icon: 'file-text'
+  color: 'blue'
+inputs:
+  file:
+    description: 'File to be compiled'
+    required: true
+  path_nixpkgs:
+    description: 'Path to nixpkgs'
+    required: false
+    default: "/nixpkgs"
+  maintainer:
+    description: 'Maintainer'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.file }}
+    - ${{ inputs.path_nixpkgs }}
+    - ${{ inputs.maintainer }}
