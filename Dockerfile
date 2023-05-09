@@ -4,4 +4,4 @@ RUN apk update \
 WORKDIR /data
 COPY main.py /data/main.py
 COPY entrypoint.sh entrypoint.sh
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
