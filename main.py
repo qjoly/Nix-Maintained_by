@@ -8,6 +8,8 @@ def search_files_with_string(root_dir, search_string):
             if search_string in f.read():
                 print(file_path)
                 files.append("- " + file_path)
+    if files == []:
+        print("Maintainer's packages were not found")
     return files
 
 def insert_strings_between_markers(file_path, start_marker, end_marker, strings_list):
@@ -36,9 +38,11 @@ def insert_strings_between_markers(file_path, start_marker, end_marker, strings_
 if __name__ == '__main__':
     if len(sys.argv) != 4:
        raise ValueError("Incorrect number of arguments. Usage: python script.py file_to_edit path_nixpkgs maintainer_name")
-
     file_path = sys.argv[1]
+    print(f"File to edit : {file_path}")
     path_nixpkgs = sys.argv[2]
+    print(f"Path to nixpkgs/pkgs : {path_nixpkgs}")
     maintainer = sys.argv[3]
+    print(f"Maintener: {maintainer}")
     insert_strings_between_markers(file_path, '<!-- NIX-PACKAGES:START -->', '<!-- NIX-PACKAGES:END -->', search_files_with_string(path_nixpkgs, maintainer))
 
