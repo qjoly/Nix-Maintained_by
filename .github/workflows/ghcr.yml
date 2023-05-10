@@ -32,6 +32,9 @@ jobs:
         with:
           path: './nixpkgs'
           repository: 'NixOS/nixpkgs'
+      
+      - uses: actions/checkout@v3
+      
       - name: Run nix-maintainers-get-packages
         uses: qjoly/nix-maintainers-get-packages@v0.1.1
         with:
