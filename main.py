@@ -6,6 +6,7 @@ def search_files_with_string(root_dir, search_string):
     for file_path in glob.iglob(search_pattern, recursive=True):
         with open(file_path, 'r') as f:
             if search_string in f.read():
+                print(file_path)
                 files.append("- " + file_path)
     return files
 
