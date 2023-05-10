@@ -7,15 +7,29 @@ def search_files_with_string(root_dir, search_string):
         with open(file_path, 'r') as f:
             if search_string in f.read():
                 print(file_path)
-                files.append("- " + file_path.split("/")[-2])
+                homepage=search_homepage_of_program(file_path)
+                pname = file_path.split("/")[-2]
+                files.append(f"- [{pname}]({homepage})")
     if files == []:
         print("Maintainer's packages were not found")
     return files
 
+def search_homepage_of_program(file_path):
+    homepage = ""
+    with open(file_path, 'r') as f:
+        lines = f.readlines()
+    for line in lines:
+        if "homepage" in line:
+            homepage = line
+
+    if homepage == "":
+        print("Homepage was not found")
+        return "http://notfound"
+    return homepage.split('"')[-2]
+
 def insert_strings_between_markers(file_path, start_marker, end_marker, strings_list):
     with open(file_path, 'r') as f:
         lines = f.readlines()
-
     start_index = None
     end_index = None
     for i, line in enumerate(lines):
@@ -34,7 +48,6 @@ def insert_strings_between_markers(file_path, start_marker, end_marker, strings_
     with open(file_path, 'w') as f:
         f.write(''.join(lines))
 
-
 if __name__ == '__main__':
     if len(sys.argv) != 4:
        raise ValueError("Incorrect number of arguments. Usage: python script.py file_to_edit path_nixpkgs maintainer_name")
@@ -45,4 +58,3 @@ if __name__ == '__main__':
     maintainer = sys.argv[3]
     print(f"Maintener: {maintainer}")
     insert_strings_between_markers(file_path, '<!-- NIX-PACKAGES:START -->', '<!-- NIX-PACKAGES:END -->', search_files_with_string(path_nixpkgs, maintainer))
-
