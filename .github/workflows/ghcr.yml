@@ -33,14 +33,9 @@ jobs:
         with:
           path: './nixpkgs'
           repository: 'NixOS/nixpkgs'
-      - name: debug
-        run: |
-          ls -lah
-          ls -lah ./nixpkgs
-          grep -r "qjoly" ./nixpkgs/pkgs
       
       - name: Run nix-maintainers-get-packages
-        uses: qjoly/nix-maintainers-get-packages@v0.1.1
+        uses: qjoly/nix-maintainers-get-packages@v0.1.2
         with:
           file: './test.md'
           path_nixpkgs: './nixpkgs/pkgs'
