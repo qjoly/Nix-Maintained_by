@@ -1,2 +1,2 @@
 #!/bin/sh
-sh -c "python3 main.py $*"
+sh -c "python3 /data/main.py $*"
