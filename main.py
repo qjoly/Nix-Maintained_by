@@ -7,7 +7,7 @@ def search_files_with_string(root_dir, search_string):
         with open(file_path, 'r') as f:
             if search_string in f.read():
                 print(file_path)
-                files.append("- " + file_path)
+                files.append("- " + file_path.split("/")[-2])
     if files == []:
         print("Maintainer's packages were not found")
     return files
