@@ -23,4 +23,18 @@ jobs:
          context: .
          push: true
          tags: ghcr.io/qjoly/nix-maintainers-get-packages
-
+  run_action:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Run nix-maintainers-get-packages
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: './nixpkgs'
+          repository: 'NixOS/nixpkgs'
+      - name: Run nix-maintainers-get-packages
+        uses: qjoly/nix-maintainers-get-packages@v0.1
+        with:
+          file: './test.md'
+          path_nixpkgs: './nixpkgs/pkgs'
+          maintainer: 'qjoly'
