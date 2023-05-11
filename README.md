@@ -56,6 +56,10 @@ Anything here will be deleted
 - [k9s](https://github.com/derailed/k9s)
 <!-- NIX-PACKAGES:END -->
 ```
+<!-- NIX-PACKAGES:START -->
+- [aiac](https://github.com/gofireflyio/aiac/)
+- [k9s](https://github.com/derailed/k9s)
+<!-- NIX-PACKAGES:END -->
 
 ## Inputs
 
