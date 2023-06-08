@@ -12,7 +12,7 @@ def search_files_with_string(root_dir, search_string):
                 files.append(f"- [{pname}]({homepage})")
     if files == []:
         print("Maintainer's packages were not found")
-    return files
+    return sorted(files)
 
 def search_homepage_of_program(file_path):
     homepage = ""
@@ -56,5 +56,5 @@ if __name__ == '__main__':
     path_nixpkgs = sys.argv[2]
     print(f"Path to nixpkgs/pkgs : {path_nixpkgs}")
     maintainer = sys.argv[3]
-    print(f"Maintener: {maintainer}")
+    print(f"Maintainer: {maintainer}")
     insert_strings_between_markers(file_path, '<!-- NIX-PACKAGES:START -->', '<!-- NIX-PACKAGES:END -->', search_files_with_string(path_nixpkgs, maintainer))

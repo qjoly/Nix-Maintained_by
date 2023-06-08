@@ -1,10 +1,10 @@
-# Nix 'Maintained by'
+# Nix ‘Maintained by’
 
 This Github action module will display the packages maintained by a certain user. 
 
 ## Usage
 
-To use this GitHub Action, you'll need to create a workflow file in your repository's `.github/workflows` directory. For example, you could create a file called `maintained_by_qjoly.yml` with the following contents:
+To use this GitHub Action, you’ll need to create a workflow file in your repository’s `.github/workflows` directory. For example, you could create a file called `maintained_by_qjoly.yml` with the following contents:
 
 ```yaml
 name: Run action on test.md
@@ -16,7 +16,7 @@ on:
 jobs:
   run_action:
     runs-on: ubuntu-latest
-    name: Run 'Nix-Maintened_by'
+    name: Run 'Nix-Maintained_by'
     steps:
       - uses: actions/checkout@v3 # Clone your code
       
