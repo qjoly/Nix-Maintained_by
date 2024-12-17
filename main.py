@@ -2,7 +2,7 @@ import glob, os, sys
 
 def search_files_with_string(root_dir, search_string):
     files = []
-    search_pattern = os.path.join(root_dir, '**', 'default.nix')
+    search_pattern = os.path.join(root_dir, '**', 'package.nix')
     for file_path in glob.iglob(search_pattern, recursive=True):
         with open(file_path, 'r') as f:
             if search_string in f.read():
